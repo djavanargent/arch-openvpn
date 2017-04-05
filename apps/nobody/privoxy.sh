@@ -1,7 +1,9 @@
 #!/bin/bash
 
 if [[ "${ENABLE_PRIVOXY}" == "yes" ]]; then
-    source /home/nobody/getvpnip.sh
+    if [[ "${VPN_ENABLED}" == "yes" ]]; then
+        source /home/nobody/getvpnip.sh
+    fi
     echo "[info] Configuring Privoxy..."
     mkdir -p /config/privoxy
     if [[ ! -f "/config/privoxy/config" ]]; then
